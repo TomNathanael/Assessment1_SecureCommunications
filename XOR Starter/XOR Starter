@@ -1,0 +1,7 @@
+text = "label"
+flag = ''
+
+for ch in text:
+    flag += chr(ord(ch) ^ 13)
+
+print('crypto{{{}}}'.format(flag))
