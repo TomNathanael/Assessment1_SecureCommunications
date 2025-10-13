@@ -1,0 +1,28 @@
+from binascii import unhexlify
+
+def brute(data, key):
+    if len(data) != len(key):
+        return "Failed"
+
+    output = b''
+    for b1, b2 in zip(data, key):
+        output += bytes([b1 ^ b2])
+    try:
+        return output.decode("utf-8")
+    except:
+        return "Unable to decode"
+
+numbers = "0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104"
+code = unhexlify(numbers)
+print("Ciphered text is: {}".format(code))
+
+key_part = brute(code[:7], "crypto{".encode())
+print("Beginning of the key: {}".format(key_part))
+
+key = (key_part + "y").encode()
+key += key * int((len(code) - len(key))/len(key))
+key += key[:((len(code) - len(key))%len(key))]
+print("Key used to decode: {}".format(key))
+
+plain = brute(code, key)
+print("Flag is: {}".format(plain))
