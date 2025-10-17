@@ -1,0 +1,17 @@
+def bytes2matrix(string):
+    return [list(string[i:i+4]) for i in range(0, len(string), 4)]
+
+def matrix2bytes(matrix):
+    string = ' '
+    for i in range(len(matrix)):
+        for j in range(4):
+            string += chr(matrix[i][j])
+    return string
+
+matrix = [
+    [99, 114, 121, 112],
+    [116, 111, 123, 105],
+    [110, 109, 97, 116],
+    [114, 105, 120, 125],
+]
+print(matrix2bytes(matrix))
