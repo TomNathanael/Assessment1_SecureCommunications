@@ -1,0 +1,6 @@
+p = 65537
+a = 273246787654
+
+result = pow(a, p - 1, p)
+
+print(f"crypto{{{result}}}")
