@@ -1,8 +1,7 @@
-numbers = [99, 114, 121, 112, 116, 111, 123, 65, 83, 67, 73, 73, 95, 112, 114,
-49, 110, 116, 52, 98, 108, 51, 125]
+numbers = [99, 114, 121, 112, 116, 111, 123, 65, 83, 67, 73, 73, 95, 112, 114, 49, 110, 116, 52, 98, 108, 51, 125]  # Flag as ASCII values
 flag = ''
 
 for c in numbers:
-    flag += chr(c)
+    flag += chr(c)  # Convert numbers to characters
 
 print(flag)
